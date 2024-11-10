@@ -1,0 +1,212 @@
+﻿body, ul, li {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+nav {
+    background-color: #444;
+    color: #fff;
+    text-align: center;
+}
+
+    nav ul {
+        display: flex;
+        justify-content: center;
+        padding: 10px 0;
+    }
+
+    nav li {
+        margin: 0 15px;
+    }
+
+    nav a {
+        text-decoration: none;
+        color: #fff;
+    }
+
+/* Style the dropdown menu */
+ .dropdown {
+    position: relative;
+}
+
+.dropdown-content {
+    display: none;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    position: absolute;
+    top: 23px;
+    text-align: left;
+    background-color: #333;
+    min-width: 140px;
+    z-index: 1;
+}
+
+    .dropdown-content a:hover {
+        border-bottom: 2px solid red;
+    }
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.btn:link,
+.btn:visited {
+    display: inline-block;
+    text-decoration: none;
+    padding: 5px 15px 5px 15px;
+    border-radius: 3px;
+    color: White;
+    transition: background-color 1s,border 1s,color 1s;
+}
+
+.btn:hover,
+.btn:active {
+    background: red;
+}
+
+main {
+    width: 100%;
+    height: 80vh;
+}
+
+.right {
+    float: right;
+    display: block;
+    position: relative;
+    width: 85%;
+    height: 80vh;
+}
+
+.left {
+    float: left;
+    display: block;
+    position: relative;
+    width: 15%;
+    height: 80vh;
+    background-image: linear-gradient(to left,#444,white);
+}
+
+footer {
+    border: 2px solid red;
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 1px 0;
+}
+/*-------------------------------For Java Script---------------------------*/
+.visbleUser {
+    display: none;
+}
+
+#login-form {
+    display: none;
+}
+
+#login-text {
+    color: blue;
+    letter-spacing: 1px;
+    text-decoration: underline;
+    font-size: medium;
+    font-family: Arial;
+    font-style: normal;
+}
+
+
+/*-------------------------------For Log in and sign up---------------------------*/
+.div {
+    padding: 20px;
+}
+
+.ls-container {
+    background-color: white;
+    padding: 40px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    width: 300px;
+}
+
+.input-field {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+.input-field-in {
+    border: 2px solid red;
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 4px;
+}
+
+.ls-button {
+    background-color: #1877f2;
+    color: white;
+    border: none;
+    padding: 10px;
+    width: 100%;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+    .ls-button:hover {
+        background-color: #165eab;
+    }
+
+.error-message {
+    color: red;
+    margin-top: 10px;
+}
+
+/*-------------------------------Gridview   ---------------------------*/
+
+
+.gridview-container {
+    border-collapse: collapse;
+    font-size: 12px;
+}
+
+    .gridview-container th, .gridview-container td {
+        border: 1px solid #ddd;
+        padding: 4px;
+    }
+
+    .gridview-container th {
+        background-color: #f2f2f2;
+        text-align: left;
+    }
+
+.gridview-label {
+    color: #333;
+    margin: 0;
+}
+
+/*-------------------------------button---------------------------*/
+.button {
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+    .button:hover {
+        background-color: #0056b3;
+        transform: scale(1.05);
+    }
+
+    .button:active {
+        transform: scale(0.95);
+    }
+
+    .button:disabled {
+        background-color: #cccccc;
+        color: #666666;
+        cursor: not-allowed;
+    }

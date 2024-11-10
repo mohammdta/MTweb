@@ -1,0 +1,67 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="MasterPageAdmin.master.cs" Inherits="MasterPageAdmin" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <title>Admin Padge</title>
+    <link rel="stylesheet" type="text/css" href="m.css">
+    <style>
+    </style>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <nav>
+            <ul>
+                <li>
+                    <asp:LinkButton ID="LinkButtonHome" runat="server" CssClass="btn" Text="Home" OnClick="LinkButtonHome_Click"></asp:LinkButton></li>
+                <li class="dropdown">
+                    <a class="btn" href="#">Services</a>
+                    <div class="dropdown-content">
+                        <a class="btn" href="#">Service 1</a>
+                        <a class="btn" href="#">Service 2</a>
+                        <a class="btn" href="#">Service 3</a>
+                    </div>
+                </li>
+                <li>
+                    <asp:LinkButton ID="LinkButtonAbut" CssClass="btn" runat="server" Text="About"></asp:LinkButton></li>
+
+                <li class="dropdown">
+                    <asp:LinkButton ID="LinkButtonproduct" runat="server" CssClass="btn" Text="Products"></asp:LinkButton>
+                    <div class="dropdown-content">
+                        <asp:LinkButton ID="LinkButtonAddproduct" runat="server" CssClass="btn" Text="Add Product" OnClick="LinkButtonAddproduct_Click"></asp:LinkButton>
+                    </div>
+                </li>
+
+
+                <li class="dropdown">
+                    <asp:LinkButton CssClass="btn" CausesValidation="false" ID="LinkButtonUser" runat="server" Text="Admin" OnClick="LinkButtonUser_Click"></asp:LinkButton>
+                    <div class="dropdown-content">
+                        <asp:LinkButton ID="LinkButtonUsers" CssClass="btn" runat="server" Text="Users info" OnClick="LinkButtonUsers_Click"></asp:LinkButton>
+                        <asp:LinkButton ID="LinkButtonAdmin" CssClass="btn" runat="server" Text="Admin info" OnClick="LinkButtonAdmin_Click"></asp:LinkButton>
+                        <asp:LinkButton ID="LinkButtonAdd" runat="server" CssClass="btn" OnClick="LinkButtonAdd_Click" Text="Add Admin\User"></asp:LinkButton>
+                        <asp:LinkButton ID="LinkButtonLogut" CssClass="btn" runat="server" Text="Logout" OnClick="LinkButtonLogut_Click"></asp:LinkButton>
+                    </div>
+
+                </li>
+
+
+            </ul>
+        </nav>
+        <main>
+            <div class="right">
+                <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                </asp:ContentPlaceHolder>
+            </div>
+            <div class="left">
+                <div id="login-text">Admin Mode</div>
+                <div id="login-form">
+                    <asp:Label ID="LabelNews" runat="server" Text="Here My News"></asp:Label>
+                </div>
+            </div>
+        </main>
+    </form>
+</body>
+</html>
