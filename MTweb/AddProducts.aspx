@@ -1,6 +1,8 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPageAdmin.master" AutoEventWireup="true" CodeFile="AddProducts.aspx.cs" Inherits="AddProducts" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="Server">
+    <style>
+</style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
     <center>
@@ -13,7 +15,7 @@
             <br />
             <asp:TextBox ID="TextBoxprice" runat="server" placeholder="price"></asp:TextBox>
             <br />
-            <asp:TextBox ID="TextBoxdis" runat="server" placeholder="discount"></asp:TextBox>
+            <asp:TextBox ID="TextBoxDiscount" runat="server" placeholder="discount"></asp:TextBox>
             <br />
             <asp:Button ID="Buttonadd" runat="server" Text="Add product" OnClick="Buttonadd_Click" />
             <br />

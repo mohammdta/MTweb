@@ -29,14 +29,15 @@ public partial class AddProducts : System.Web.UI.Page
     protected void Buttonadd_Click(object sender, EventArgs e)
     {
         string id = DropDownListkind.SelectedValue;
-        string dis = TextBoxdis.Text;
+        string discount = TextBoxDiscount.Text;
         string price = TextBoxprice.Text;
         string name = TextBoxname.Text;
         string id1 = TextBoxID.Text;
-        if (dis != "" && price != "" && name != "" && id1 != "")
+        string pic = "1";
+        if (discount != "" && price != "" && name != "" && id1 != "")
         {
             Labelerro.Visible = false;
-            pruduct.sqlInsert(id1,id,price,dis,name);
+            pruduct.sqlInsert(id1,id,price, discount, name,pic);
         }
         else Labelerro.Visible = true;
     }

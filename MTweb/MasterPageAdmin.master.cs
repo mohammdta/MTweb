@@ -56,4 +56,10 @@ public partial class MasterPageAdmin : System.Web.UI.MasterPage
         Response.Redirect("AddProducts.aspx");
 
     }
+
+    protected void LinkButtonAddKindProduct_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("Addkindproduct.aspx");
+
+    }
 }

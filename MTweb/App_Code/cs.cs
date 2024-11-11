@@ -11,21 +11,16 @@ using System.Web;
 public class pruduct
 {
     public string ID { get; set; }
+    public string pic { get; set; }
     public string kindproducts { get; set; }
     public string price { get; set; }
-    public string dis { get; set; }
+    public string discount { get; set; }
     public string name { get; set; }
-    public static void sqlInsert(string ID, string kindproducts, string price ,string dis,string name)
+    public static void sqlInsert(string ID, string kindproducts, string price ,string discount, string name,string pic)
     {
-        pruduct x = new pruduct();
-        x.ID = ID;
-        x.kindproducts = kindproducts;
-        x.price = price;
-        x.dis = dis;
-        x.name = name;
-        string sql = "INSERT INTO [products] ([ID], [kindproducts], [price], [dis],[name]) VALUES (@ID, @kindproducts, @price, @dis, @name)";
-        string[] parameters = { "@ID", "@kindproducts", "@price", "@dis", "name" };
-        string[] values = { x.ID, x.kindproducts, x.price, x.dis,x.name };
+        string sql = "INSERT INTO [products] ([ID], [kindproducts], [price], [discount], [name], [pic]) VALUES (@ID, @kindproducts, @price, @discount, @name, @pic)";
+        string[] parameters = { "@ID", "@kindproducts", "@price", "@discount", "@name", "@pic" };
+        string[] values = { ID, kindproducts, price, discount,name,pic};
         Dbase.ChangeTable(sql, parameters, values, "Tcehpc.accdb");
     }
 

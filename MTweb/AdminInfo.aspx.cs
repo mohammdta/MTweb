@@ -51,6 +51,14 @@ public partial class AdminAd : System.Web.UI.Page
         Admin.sqlUpdate(email.Text, password.Text, fn.Text, phone.Text);
         GridViewinfo.EditIndex = -1;
         GridViewinfoFill();
+        if(email.Text == ((Admin)Session["Admin"]).email)
+        {
+            ((Admin)Session["Admin"]).fn = fn.Text;
+            ((Admin)Session["Admin"]).phone = phone.Text;
+            ((Admin)Session["Admin"]).password= password.Text;
+            Response.Redirect("AdminInfo.aspx");
+
+        }
     }
 
     protected void IndexChanging(object sender, GridViewPageEventArgs e)
