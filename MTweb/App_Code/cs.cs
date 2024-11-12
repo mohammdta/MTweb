@@ -25,16 +25,34 @@ public class pruduct
     }
 
 }
-public class kindpruduct
+public class kindproducts
 {
     public string ID { get; set; }
     public string name { get; set; }
+    public string Pic { get; set; }
+    public static void sqlInsert(string ID, string name, string pic)
+    {
+        string sql = "INSERT INTO [kindproduct] ([ID], [name], [pic]) VALUES (@ID, @name, @pic)";
+        string[] parameters = { "@ID", "@name", "@pic" };
+        string[] values = { ID, name, pic };
+        Dbase.ChangeTable(sql, parameters, values, "Tcehpc.accdb");
+    }
     public static DataTable sqlAll()
     {
         string sql = "SELECT * FROM [kindproduct]";
         string[] parmert = { };
         string[] values = { };
         return Dbase.SelectFromTable(sql, parmert, values, "Tcehpc.accdb");
+    }    
+    public static bool sqlCheck(string ID)
+    {
+        string sql = "SELECT * FROM [kindproduct] Where [ID]=@ID";
+        string[] parmert = { "@ID" };
+        string[] values = { ID };
+        DataTable dt = Dbase.SelectFromTable(sql, parmert, values, "Tcehpc.accdb");
+        if (dt.Rows.Count == 1)
+            return true;
+            return false;
     }
 }
 
@@ -66,11 +84,9 @@ public class Admin
     }
     public static bool sqlCheck(string email)
     {
-        user x = new user();
-        x.email = email;
         string sql = "SELECT * FROM [Admin] Where [email]=@email";
         string[] parmert = { "@email" };
-        string[] values = { x.email };
+        string[] values = { email };
         DataTable dt = Dbase.SelectFromTable(sql, parmert, values, "Tcehpc.accdb");
         if (dt.Rows.Count == 1)
             return true;

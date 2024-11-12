@@ -18,7 +18,7 @@ public partial class AddProducts : System.Web.UI.Page
 
     private void filldropdownlist()
     {
-        DataTable dt = kindpruduct.sqlAll();
+        DataTable dt = kindproducts.sqlAll();
         for (int i = 0; i < dt.Rows.Count; i++)
         {
             ListItem item = new ListItem(dt.Rows[i]["name"].ToString(), dt.Rows[i]["ID"].ToString());
