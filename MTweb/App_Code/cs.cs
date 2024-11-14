@@ -16,11 +16,13 @@ public class pruduct
     public string price { get; set; }
     public string discount { get; set; }
     public string name { get; set; }
-    public static void sqlInsert(string ID, string kindproducts, string price ,string discount, string name,string pic)
+    public string count { get; set; }
+    public bool Private { get; set; }
+    public static void sqlInsert(string ID, string kindproducts, string price, string discount, string name, string pic, string count, bool Private)
     {
-        string sql = "INSERT INTO [products] ([ID], [kindproducts], [price], [discount], [name], [pic]) VALUES (@ID, @kindproducts, @price, @discount, @name, @pic)";
-        string[] parameters = { "@ID", "@kindproducts", "@price", "@discount", "@name", "@pic" };
-        string[] values = { ID, kindproducts, price, discount,name,pic};
+        string sql = "INSERT INTO [products] ([ID], [kindproducts], [price], [discount], [name], [pic], [count], [Private]) VALUES (@ID, @kindproducts, @price, @discount, @name, @pic, @count, @Private)";
+        string[] parameters = { "@ID", "@kindproducts", "@price", "@discount", "@name", "@pic", "@count", "@Private" };
+        string[] values = { ID, kindproducts, price, discount, name, pic, count, Private.ToString() };
         Dbase.ChangeTable(sql, parameters, values, "Tcehpc.accdb");
     }
 

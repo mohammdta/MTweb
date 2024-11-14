@@ -33,11 +33,15 @@ public partial class AddProducts : System.Web.UI.Page
         string price = TextBoxprice.Text;
         string name = TextBoxname.Text;
         string id1 = TextBoxID.Text;
+        string count = TextBoxcount.Text;
+        bool ok = true;
+        if (DropDownList2.Text == "No")
+            ok = false;
         string pic = "1";
-        if (discount != "" && price != "" && name != "" && id1 != "")
+        if (discount != "" && price != "" && name != "" && id1 != "" && count != "")
         {
             Labelerro.Visible = false;
-            pruduct.sqlInsert(id1,id,price, discount, name,pic);
+            pruduct.sqlInsert(id1, id, price, discount, name, pic, count, ok);
         }
         else Labelerro.Visible = true;
     }

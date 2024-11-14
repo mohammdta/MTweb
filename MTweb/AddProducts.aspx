@@ -15,6 +15,13 @@
             <br />
             <asp:TextBox ID="TextBoxprice" runat="server" placeholder="price"></asp:TextBox>
             <br />
+            <asp:TextBox ID="TextBoxcount" runat="server" placeholder="count"></asp:TextBox>
+            <br />
+            <asp:DropDownList ID="DropDownList2" runat="server">
+                <asp:ListItem Selected="True">Yes</asp:ListItem>
+                <asp:ListItem Value="No"></asp:ListItem>
+            </asp:DropDownList>
+            <br />
             <asp:TextBox ID="TextBoxDiscount" runat="server" placeholder="discount"></asp:TextBox>
             <br />
             <asp:Button ID="Buttonadd" runat="server" Text="Add product" OnClick="Buttonadd_Click" />
