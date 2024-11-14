@@ -13,6 +13,8 @@
             <br />
             <asp:TextBox ID="TextBoxname" runat="server" placeholder="name"></asp:TextBox>
             <br />
+            <asp:FileUpload ID="FileUploadpic" runat="server" />
+            <br />
             <asp:TextBox ID="TextBoxprice" runat="server" placeholder="price"></asp:TextBox>
             <br />
             <asp:TextBox ID="TextBoxcount" runat="server" placeholder="count"></asp:TextBox>

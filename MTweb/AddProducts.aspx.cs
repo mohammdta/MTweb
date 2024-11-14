@@ -37,7 +37,8 @@ public partial class AddProducts : System.Web.UI.Page
         bool ok = true;
         if (DropDownList2.Text == "No")
             ok = false;
-        string pic = "1";
+        byte[] by= FileUploadpic.FileBytes;
+        string pic = Convert.ToBase64String(by);
         if (discount != "" && price != "" && name != "" && id1 != "" && count != "")
         {
             Labelerro.Visible = false;

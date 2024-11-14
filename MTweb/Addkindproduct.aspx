@@ -7,6 +7,8 @@
     <br />
     <asp:TextBox ID="TextBoxid" runat="server" Placeholder="Id"></asp:TextBox>
     <br />
+    <asp:FileUpload ID="FileUploadpic" runat="server" />
+    <br />
     <asp:Button ID="ButtonAppKind" runat="server" Text="App Kind Product" OnClick="ButtonAppKind_Click" />
     <br />
     <asp:Label ID="Labelerro" runat="server" Text="The id was used"  CssClass="error-message" Visible="false"></asp:Label>
