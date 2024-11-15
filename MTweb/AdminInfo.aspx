@@ -1,6 +1,12 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPageAdmin.master" AutoEventWireup="true" CodeFile="AdminInfo.aspx.cs" Inherits="AdminAd" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
+    <style>
+
+    .div {
+    padding: 20px;
+}
+    </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
       <div class="div">
@@ -19,28 +25,28 @@
                   </asp:TemplateField>
                   <asp:TemplateField HeaderText="Email">
                       <ItemTemplate>
-                          <asp:Label ID="LabelEmail" runat="server" Text='<%#Bind("email") %>' CssClass="gridview-label"></asp:Label>
+                          <asp:Label ID="LabelEmail" runat="server" Text='<%#Bind("Email") %>' CssClass="gridview-label"></asp:Label>
                       </ItemTemplate>
                       <EditItemTemplate>
-                          <asp:Label ID="LabelEmailEdit" runat="server" Text='<%#Bind("email") %>'></asp:Label>
+                          <asp:Label ID="LabelEmailEdit" runat="server" Text='<%#Bind("Email") %>'></asp:Label>
                       </EditItemTemplate>
                   </asp:TemplateField>
 
                   <asp:TemplateField HeaderText="Password">
                       <ItemTemplate>
-                          <asp:Label ID="Labelpassword" runat="server" Text='<%#Bind("password") %>' CssClass="gridview-label"></asp:Label>
+                          <asp:Label ID="Labelpassword" runat="server" Text='<%#Bind("PassWord") %>' CssClass="gridview-label"></asp:Label>
                       </ItemTemplate>
                       <EditItemTemplate>
-                          <asp:TextBox ID="TextBoxPassword" runat="server" Text='<%#Bind("password") %>'></asp:TextBox>
+                          <asp:TextBox ID="TextBoxPassword" runat="server" Text='<%#Bind("PassWord") %>'></asp:TextBox>
                       </EditItemTemplate>
                   </asp:TemplateField>
 
                   <asp:TemplateField HeaderText="Phone">
                       <ItemTemplate>
-                          <asp:Label ID="Labelphone" runat="server" Text='<%#Bind("phone") %>' CssClass="gridview-label"></asp:Label>
+                          <asp:Label ID="Labelphone" runat="server" Text='<%#Bind("Phone") %>' CssClass="gridview-label"></asp:Label>
                       </ItemTemplate>
                       <EditItemTemplate>
-                          <asp:TextBox ID="TextBoxPhone" runat="server" Text='<%#Bind("phone") %>'></asp:TextBox>
+                          <asp:TextBox ID="TextBoxPhone" runat="server" Text='<%#Bind("Phone") %>'></asp:TextBox>
                       </EditItemTemplate>
                   </asp:TemplateField>
 

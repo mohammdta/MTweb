@@ -18,10 +18,11 @@ public partial class AddProducts : System.Web.UI.Page
 
     private void filldropdownlist()
     {
+
         DataTable dt = kindproducts.sqlAll();
         for (int i = 0; i < dt.Rows.Count; i++)
         {
-            ListItem item = new ListItem(dt.Rows[i]["name"].ToString(), dt.Rows[i]["ID"].ToString());
+            ListItem item = new ListItem(dt.Rows[i]["Name"].ToString(), dt.Rows[i]["Id"].ToString());
             DropDownListkind.Items.Add(item);
         }
     }
@@ -35,7 +36,7 @@ public partial class AddProducts : System.Web.UI.Page
         string id1 = TextBoxID.Text;
         string count = TextBoxcount.Text;
         bool ok = true;
-        if (DropDownList2.Text == "No")
+        if (RadioButtonNo.Checked)
             ok = false;
         byte[] by= FileUploadpic.FileBytes;
         string pic = Convert.ToBase64String(by);

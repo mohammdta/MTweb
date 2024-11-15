@@ -14,7 +14,7 @@ public partial class MasterPage : System.Web.UI.MasterPage
         {
             if ((user)Session["user"] != null)
             {
-                LinkButtonUser.Text = ((user)Session["user"]).fn;
+                LinkButtonUser.Text = ((user)Session["user"]).Fn;
                 LinkButtonUser.Visible = true;
                 LinkButtonLogin.Visible = false;
             }

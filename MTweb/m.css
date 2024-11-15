@@ -113,9 +113,7 @@ footer {
 
 
 /*-------------------------------For Log in and sign up---------------------------*/
-.div {
-    padding: 20px;
-}
+
 
 .ls-container {
     background-color: white;
@@ -184,3 +182,62 @@ footer {
     margin: 0;
 }
 
+/*----------------------------------------------Add kind and pro--------------------------------------------*/
+
+
+.container {
+    background-color: #fff;
+    padding: 40px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 400px;
+    max-width: 100%;
+}
+
+
+.input-fieldAdd {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    box-sizing: border-box;
+    font-size: 14px;
+}
+
+    .input-fieldAdd:focus {
+        border-color: #007bff;
+        outline: none;
+    }
+
+.file-upload {
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    margin: 10px 0;
+}
+
+.label-text {
+    font-size: 14px;
+    font-weight: 600;
+    margin-bottom: 8px;
+}
+
+.radio-btn {
+    margin-right: 10px;
+}
+
+.btn-submit {
+    width: 100%;
+    padding: 12px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+    .btn-submit:hover {
+        background-color: #0056b3;
+    }

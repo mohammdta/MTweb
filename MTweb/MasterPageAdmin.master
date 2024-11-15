@@ -5,7 +5,7 @@
 <html>
 <head runat="server">
     <title>Admin Padge</title>
-    <link rel="stylesheet" type="text/css" href="mt.css">
+    <link rel="stylesheet" type="text/css" href="m.css">
     <style>
     </style>
     <asp:ContentPlaceHolder ID="head" runat="server">

@@ -16,9 +16,11 @@ public partial class Addkindproduct : System.Web.UI.Page
 
     protected void ButtonAppKind_Click(object sender, EventArgs e)
     {
-        if (!kindproducts.sqlCheck(TextBoxid.Text))
+        if (TextBoxName.Text!="")
         {
-            kindproducts.sqlInsert(TextBoxid.Text, TextBoxName.Text, "1");
+            byte[] by = FileUploadpic.FileBytes;
+            string pic = Convert.ToBase64String(by);
+            kindproducts.sqlInsert(TextBoxName.Text, pic);
             Response.Redirect("Addkindproduct.aspx");
         }
         else Labelerro.Visible = true;

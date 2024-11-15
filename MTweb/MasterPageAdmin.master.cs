@@ -15,7 +15,7 @@ public partial class MasterPageAdmin : System.Web.UI.MasterPage
     {
         if (!IsPostBack)
             if (Session["admin"] != null)
-                LinkButtonUser.Text = ((Admin)Session["admin"]).fn;
+                LinkButtonUser.Text = ((Admin)Session["admin"]).Fn;
 
     }
 
