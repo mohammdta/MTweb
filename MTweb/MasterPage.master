@@ -7,10 +7,9 @@
     <link rel="stylesheet" type="text/css" href="m.css">
     <style>
         .dropdown-content {
-    min-width: 100px;
-}
-
-    </style>    
+            min-width: 100px;
+        }
+    </style>
     <title></title>
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
@@ -22,7 +21,7 @@
                 <li>
                     <asp:LinkButton ID="LinkButtonHome" runat="server" CssClass="btn" Text="Home" OnClick="LinkButtonHome_Click"></asp:LinkButton></li>
                 <li class="dropdown">
-                    <a class="btn" href="#">Services</a>
+                    <asp:LinkButton ID="LinkButtonproduct" runat="server" class="btn" Text="product" OnClick="LinkButtonproduct_Click"></asp:LinkButton>
                     <div class="dropdown-content">
                         <a class="btn" href="#">Service 1</a>
                         <a class="btn" href="#">Service 2</a>
