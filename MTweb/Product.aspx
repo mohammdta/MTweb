@@ -7,7 +7,7 @@
         <ItemTemplate>
             <asp:Label ID="Labelgro" runat="server" Text='<%#Bind("Name") %>'></asp:Label>
             <br />
-            <asp:ImageButton ID="ImageButton1" runat="server" OnClick="ImageButton1_Click" Height="100" Width="100" />
+            <asp:ImageButton ID="ImageButton1" runat="server" OnClick="ImageButton1_Click" CommandArgument='<%#Bind("Id") %>' Height="100" Width="100" />
         </ItemTemplate>
     </asp:DataList>
 </asp:Content>
