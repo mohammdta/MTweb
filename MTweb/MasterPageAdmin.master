@@ -28,7 +28,7 @@
                 <li>
                     <asp:LinkButton ID="LinkButtonAbut" CssClass="btn" runat="server" Text="About"></asp:LinkButton></li>
                 <li class="dropdown">
-                    <asp:LinkButton ID="LinkButtonproduct" runat="server" CssClass="btn" Text="Products"></asp:LinkButton>
+                    <asp:LinkButton ID="LinkButtonproduct" runat="server" CssClass="btn" Text="Products" OnClick="LinkButtonproduct_Click"></asp:LinkButton>
                     <div class="dropdown-content">
                         <asp:LinkButton ID="LinkButtonAddproduct" runat="server" CssClass="btn" Text="Add Product" OnClick="LinkButtonAddproduct_Click"></asp:LinkButton>
                     <asp:LinkButton ID="LinkButtonAddKindProduct" runat="server" CssClass="btn" Text="Add Kind Product" OnClick="LinkButtonAddKindProduct_Click"></asp:LinkButton>

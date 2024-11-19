@@ -1,4 +1,4 @@
-﻿using System;
+﻿ using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
@@ -24,6 +24,13 @@ public class pruduct
         string[] parameters = { "@Id", "@KindProducts", "@price", "@Discount", "@name", "@Pic", "@Count", "@Private" };
         string[] values = { Id, KindProducts, Price, Discount, Name, Pic, Count, Private.ToString() };
         Dbase.ChangeTable(sql, parameters, values, "Tcehpc.accdb");
+    }
+    public static DataTable sqlid(string id)
+    {
+        string sql = "SELECT * FROM [products] Where [Id]=@Id ";
+        string[] parmert = { "@Id"};
+        string[] values = { id};
+        return Dbase.SelectFromTable(sql, parmert, values, "Tcehpc.accdb");
     }
 
 }
