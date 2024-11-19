@@ -28,9 +28,10 @@ public partial class Product : System.Web.UI.Page
         }
     }
 
-    protected void ImageButton1_Click(object sender, ImageClickEventArgs e)
+
+    protected void DataListpro_ItemCommand(object source, DataListCommandEventArgs e)
     {
-
+        Session["IdKind"] =e.CommandArgument.ToString();
+        Response.Redirect("showproduct.aspx");
     }
-
 }
