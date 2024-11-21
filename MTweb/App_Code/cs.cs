@@ -55,7 +55,7 @@ public class kindproducts
     }    
     public static bool sqlCheck(string Id)
     {
-        string sql = "SELECT * FROM [kindproduct] Where [Id]=@Id";
+        string sql = "SELECT * FROM [kindproduct] 123451 Where [Id]=@Id";
         string[] parmert = { "@Id" };
         string[] values = { Id };
         DataTable dt = Dbase.SelectFromTable(sql, parmert, values, "Tcehpc.accdb");
@@ -102,27 +102,17 @@ public class Admin
         return false;
     }
     public static void sqlInsert(string Email, string Pass, string Fn, string Phone)
-    {
-        Admin x = new Admin();
-        x.Email = Email;
-        x.PassWord = Pass;
-        x.Fn = Fn;
-        x.Phone = Phone;
+    {;
         string sql = "INSERT INTO [Admin] ([Email], [PassWord], [Fn], [Phone]) VALUES (@Email, @PassWord, @Fn, @Phone)";
         string[] parameters = { "@Email", "@PassWord", "@Fn", "@Phone" };
-        string[] values = { x.Email, x.PassWord, x.Fn, x.Phone };
+        string[] values = { Email, Pass,Fn, Phone };
         Dbase.ChangeTable(sql, parameters, values, "Tcehpc.accdb");
     }
     public static void sqlUpdate(string Email, string pass, string Fn, string Phone)
     {
-        user x = new user();
-        x.Email = Email;
-        x.PassWord = pass;
-        x.Fn = Fn;
-        x.Phone = Phone;
         string sql = "UPDATE [Admin] SET [PassWord] = @PassWord, [Fn] = @Fn, [Phone] = @Phone WHERE [Email] = @Email";
         string[] parameters = { "@PassWord", "@Fn", "@Phone", "@Email" };
-        string[] values = { x.PassWord, x.Fn, x.Phone, x.Email };
+        string[] values = { pass, Fn, Phone, Email };
         Dbase.ChangeTable(sql, parameters, values, "Tcehpc.accdb");
     }
     public static DataTable sqlAll()
@@ -169,11 +159,9 @@ public class user
     }
     public static bool sqlCheck(string Email)
     {
-        user x = new user();
-        x.Email = Email;
         string sql = "SELECT * FROM [User] Where [Email]=@Email";
         string[] parmert = { "@Email" };
-        string[] values = { x.Email };
+        string[] values = { Email };
         DataTable dt = Dbase.SelectFromTable(sql, parmert, values, "Tcehpc.accdb");
         if (dt.Rows.Count == 1)
             return true;
@@ -181,26 +169,16 @@ public class user
     }
     public static void sqlInsert(string Email, string pass, string Fn, string Phone)
     {
-        user x = new user();
-        x.Email = Email;
-        x.PassWord = pass;
-        x.Fn = Fn;
-        x.Phone = Phone;
         string sql = "INSERT INTO [User] ([Email], [PassWord], [Fn], [Phone]) VALUES (@Email, @PassWord, @Fn, @Phone)";
         string[] parameters = { "@Email", "@PassWord", "@Fn", "@Phone" };
-        string[] values = { x.Email, x.PassWord, x.Fn, x.Phone };
+        string[] values = { Email, pass, Fn, Phone };
         Dbase.ChangeTable(sql, parameters, values, "Tcehpc.accdb");
     }
     public static void sqlUpdateUser(string Email, string pass, string Fn, string Phone)
     {
-        user x = new user();
-        x.Email = Email;
-        x.PassWord = pass;
-        x.Fn = Fn;
-        x.Phone = Phone;
         string sql = "UPDATE [User] SET [PassWord] = @PassWord, [Fn] = @Fn, [Phone] = @Phone WHERE [Email] = @Email";
         string[] parameters = { "@PassWord", "@Fn", "@Phone", "@Email" };
-        string[] values = { x.PassWord, x.Fn, x.Phone, x.Email };
+        string[] values = { pass,Fn, Phone, Email };
         Dbase.ChangeTable(sql, parameters, values, "Tcehpc.accdb");
     }
     public static DataTable sqlAll()

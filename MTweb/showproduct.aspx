@@ -11,7 +11,7 @@
             <br />
             <asp:Label ID="LabelCount" runat="server" Text='<%#Bind("Count") %>'></asp:Label>
             <br />
-            <asp:Label ID="LabelPrice" runat="server" Text=""></asp:Label>
+            <asp:Label ID="LabelPrice" runat="server"  Text='<%#Bind("Price")%>' ></asp:Label>
             <br />
             <asp:Label ID="LabelPricebe" runat="server" Text='<%#Bind("Price") %>'></asp:Label>
         </ItemTemplate>
