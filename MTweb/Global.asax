@@ -25,7 +25,7 @@
         // Code that runs when a new session is started
         Session["user"] = null;
         Session["admin"] = null;
-        Session["IdKind"] ="" ;
+        Session["IdKind"] =" " ;
     }
 
     void Session_End(object sender, EventArgs e)

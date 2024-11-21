@@ -27,9 +27,9 @@ public class pruduct
     }
     public static DataTable sqlid(string id)
     {
-        string sql = "SELECT * FROM [products] Where [Id]=@Id ";
-        string[] parmert = { "@Id"};
-        string[] values = { id};
+        string sql = "SELECT * FROM [products] Where [Id]=@Id and [Private]=@Private ";
+        string[] parmert = { "@Id", "@Private" };
+        string[] values = { id, true.ToString()};
         return Dbase.SelectFromTable(sql, parmert, values, "Tcehpc.accdb");
     }
 

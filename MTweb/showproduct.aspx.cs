@@ -25,7 +25,6 @@ public partial class showproduct : System.Web.UI.Page
             double price = double.Parse( dt.Rows[i]["Price"].ToString());
             double discount = double.Parse(dt.Rows[i]["Discount"].ToString());
             double priceafter =price*(1.0-discount);
-
         }
     }
 }
