@@ -25,11 +25,11 @@ public class pruduct
         string[] values = { Id, KindProducts, Price, Discount, Name, Pic, Count, Private.ToString() };
         Dbase.ChangeTable(sql, parameters, values, "Tcehpc.accdb");
     }
-    public static DataTable sqlid(string id)
+    public static DataTable sqlid(string KindProducts)
     {
-        string sql = "SELECT * FROM [products] Where [Id]=@Id and [Private]=@Private ";
-        string[] parmert = { "@Id", "@Private" };
-        string[] values = { id, true.ToString()};
+        string sql = "SELECT * FROM [products] Where [KindProducts]=@KindProducts and [Private]=@Private ";
+        string[] parmert = { "@KindProducts", "@Private" };
+        string[] values = { KindProducts,"True"};
         return Dbase.SelectFromTable(sql, parmert, values, "Tcehpc.accdb");
     }
 
