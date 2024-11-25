@@ -8,6 +8,22 @@ using System.Web;
 /// Summary description for User
 /// </summary>
 /// /// </summary>
+public class cart
+{
+    public string Porduct;
+    public string User;
+    public string Date;
+    public bool IsBuy;
+    public string Count;
+    public static void sqlInsert(string Porduct, string User, string Date,string count)
+    {
+        string sql = "INSERT INTO [cart] ([Porduct], [User], [Date], [IsBuy], [Count]) VALUES (@Porduct, @User, @Date, @IsBuy, @Count)";
+        string[] parameters = { "@Porduct", "@User", "@Date", "@IsBuy", "@Count" };
+        string[] values = { Porduct, User, Date, "false", count };
+        Dbase.ChangeTable(sql, parameters, values, "Tcehpc.accdb");
+    }
+}
+
 public class pruduct
 {
     public string Id { get; set; }

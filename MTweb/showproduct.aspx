@@ -3,7 +3,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
-        <asp:DataList ID="DataListpro" runat="server" RepeatColumns="2">
+        <asp:DataList ID="DataListpro" runat="server" RepeatColumns="2" OnItemCommand="DataListpro_ItemCommand">
         <ItemTemplate>
             <asp:Label ID="Labelname1" runat="server" Text="Name of product"></asp:Label>
             <asp:Label ID="LabelName" runat="server" Text='<%#Bind("Name") %>'></asp:Label>
@@ -16,6 +16,8 @@
             <asp:Label ID="LabelPrice" runat="server"  Text='<%#Bind("Price")%>' ></asp:Label>
             <br />
             <asp:Label ID="LabelPricebe" runat="server" Text='<%#Bind("Price") %>'></asp:Label>
+            <br />
+            <asp:Button ID="Button1" runat="server" Text="Button" CommandArgument='<%#Bind("id") %>' />
         </ItemTemplate>
     </asp:DataList>
 </asp:Content>

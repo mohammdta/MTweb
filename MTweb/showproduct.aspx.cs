@@ -25,7 +25,16 @@ public partial class showproduct : System.Web.UI.Page
             double price = double.Parse(dt.Rows[i]["Price"].ToString());
             double discount = double.Parse(dt.Rows[i]["Discount"].ToString());
             Label labelPrice = (Label)DataListpro.Items[i].FindControl("LabelPrice");
-            labelPrice.Text = (price * (discount/100)).ToString();
+            labelPrice.Text = (price * (discount / 100)).ToString();
         }
+    }
+
+    protected void DataListpro_ItemCommand(object source, DataListCommandEventArgs e)
+    {
+
+        string st = e.CommandArgument.ToString();
+        user us = (user)Session["user"];
+        cart.sqlInsert(st,us.Email,"12","1");
+
     }
 }
