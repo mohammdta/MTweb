@@ -1,4 +1,4 @@
-﻿ using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
@@ -15,12 +15,26 @@ public class cart
     public string Date;
     public bool IsBuy;
     public string Count;
-    public static void sqlInsert(string Porduct, string User, string Date,string count)
+    public static void sqlInsert(string Porduct, string User, string Date)
     {
-        string sql = "INSERT INTO [cart] ([Porduct], [User], [Date], [IsBuy], [Count]) VALUES (@Porduct, @User, @Date, @IsBuy, @Count)";
-        string[] parameters = { "@Porduct", "@User", "@Date", "@IsBuy", "@Count" };
-        string[] values = { Porduct, User, Date, "false", count };
-        Dbase.ChangeTable(sql, parameters, values, "Tcehpc.accdb");
+        string sql = "SELECT * FROM [cart] Where [Porduct]=@Porduct and [User]=@User and [IsBuy]=@IsBuy";
+        string[] parmert = { "@Porduct", "@User" , "@IsBuy" };
+        string[] values = { Porduct, User,"False" };
+        DataTable dt = Dbase.SelectFromTable(sql, parmert, values, "Tcehpc.accdb");
+        if (dt.Rows.Count ==0)
+        {
+            string sql1 = "INSERT INTO [cart] ([Porduct], [User], [Date], [IsBuy], [Count]) VALUES (@Porduct, @User, @Date, @IsBuy, @Count)";
+            string[] parameters1 = { "@Porduct", "@User", "@Date", "@IsBuy", "@Count" };
+            string[] values1 = { Porduct, User, Date, "False", "1" };
+            Dbase.ChangeTable(sql1, parameters1, values1, "Tcehpc.accdb");
+        }
+        else
+        {
+        string sql2 = "UPDATE [cart] SET [Count] = @Count WHERE [Id] = @Id";
+        string[] parameters2 = { "@Count", "@Id" };
+        string[] values2 = { (int.Parse(dt.Rows[0]["Count"].ToString()) + 1).ToString(), dt.Rows[0]["Id"].ToString() };
+        Dbase.ChangeTable(sql2, parameters2, values2, "Tcehpc.accdb");
+}
     }
 }
 
@@ -45,7 +59,7 @@ public class pruduct
     {
         string sql = "SELECT * FROM [products] Where [KindProducts]=@KindProducts and [Private]=@Private ";
         string[] parmert = { "@KindProducts", "@Private" };
-        string[] values = { KindProducts,"True"};
+        string[] values = { KindProducts, "True" };
         return Dbase.SelectFromTable(sql, parmert, values, "Tcehpc.accdb");
     }
 
@@ -55,7 +69,7 @@ public class kindproducts
     public string Id { get; set; }
     public string Name { get; set; }
     public string Pic { get; set; }
-    public static void sqlInsert( string Name, string Pic)
+    public static void sqlInsert(string Name, string Pic)
     {
         string sql = "INSERT INTO [kindproduct] ([Name], [Pic]) VALUES ( @Name, @Pic)";
         string[] parameters = { "@Name", "@Pic" };
@@ -68,7 +82,7 @@ public class kindproducts
         string[] parmert = { };
         string[] values = { };
         return Dbase.SelectFromTable(sql, parmert, values, "Tcehpc.accdb");
-    }    
+    }
     public static bool sqlCheck(string Id)
     {
         string sql = "SELECT * FROM [kindproduct] 123451 Where [Id]=@Id";
@@ -77,7 +91,7 @@ public class kindproducts
         DataTable dt = Dbase.SelectFromTable(sql, parmert, values, "Tcehpc.accdb");
         if (dt.Rows.Count == 1)
             return true;
-            return false;
+        return false;
     }
 }
 
@@ -118,10 +132,11 @@ public class Admin
         return false;
     }
     public static void sqlInsert(string Email, string Pass, string Fn, string Phone)
-    {;
+    {
+        ;
         string sql = "INSERT INTO [Admin] ([Email], [PassWord], [Fn], [Phone]) VALUES (@Email, @PassWord, @Fn, @Phone)";
         string[] parameters = { "@Email", "@PassWord", "@Fn", "@Phone" };
-        string[] values = { Email, Pass,Fn, Phone };
+        string[] values = { Email, Pass, Fn, Phone };
         Dbase.ChangeTable(sql, parameters, values, "Tcehpc.accdb");
     }
     public static void sqlUpdate(string Email, string pass, string Fn, string Phone)
@@ -194,7 +209,7 @@ public class user
     {
         string sql = "UPDATE [User] SET [PassWord] = @PassWord, [Fn] = @Fn, [Phone] = @Phone WHERE [Email] = @Email";
         string[] parameters = { "@PassWord", "@Fn", "@Phone", "@Email" };
-        string[] values = { pass,Fn, Phone, Email };
+        string[] values = { pass, Fn, Phone, Email };
         Dbase.ChangeTable(sql, parameters, values, "Tcehpc.accdb");
     }
     public static DataTable sqlAll()

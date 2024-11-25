@@ -17,7 +17,7 @@
             <br />
             <asp:Label ID="LabelPricebe" runat="server" Text='<%#Bind("Price") %>'></asp:Label>
             <br />
-            <asp:Button ID="Button1" runat="server" Text="Button" CommandArgument='<%#Bind("id") %>' />
+            <asp:Button ID="ButtonAddCart" runat="server" Text="AddCart" CommandArgument='<%#Bind("id") %>' />
         </ItemTemplate>
     </asp:DataList>
 </asp:Content>

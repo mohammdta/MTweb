@@ -34,7 +34,7 @@ public partial class showproduct : System.Web.UI.Page
 
         string st = e.CommandArgument.ToString();
         user us = (user)Session["user"];
-        cart.sqlInsert(st,us.Email,"12","1");
-
+        DateTime dateTime = DateTime.Now;
+        cart.sqlInsert(st,us.Email,dateTime.ToString("yyyy/MM/dd"));
     }
 }
