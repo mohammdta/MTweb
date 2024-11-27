@@ -15,25 +15,19 @@ public partial class MasterPage : System.Web.UI.MasterPage
             if ((user)Session["user"] != null)
             {
                 LinkButtonUser.Text = ((user)Session["user"]).Fn;
-                LinkButtonUser.Visible = true;
-                LinkButtonLogin.Visible = false;
+                LinkButtonLogout.Visible= true;
             }
             else
             {
-                LinkButtonUser.Visible = false;
-                LinkButtonLogin.Visible = true;
+                LinkButtonUser.Text = "Login";
+                LinkButtonLogout.Visible = false;
             }
-            
         }
-    }
-    protected void LinkButtonLogin_Click(object sender, EventArgs e)
-    {
-            Response.Redirect("Login.aspx");
     }
     protected void LinkButtonLogout_Click(object sender, EventArgs e)
     {
         Session["user"] = null;
-        LinkButtonLogin.Text = "Login";
+        LinkButtonUser.Text = "Login";
         Response.Redirect("Default.aspx");
     }
 
@@ -44,7 +38,9 @@ public partial class MasterPage : System.Web.UI.MasterPage
     }
     protected void LinkButtonUser_Click(object sender, EventArgs e)
     {
-        Response.Redirect("pro.aspx");
+        LinkButton linkButton=(LinkButton)sender;
+        if(linkButton.Text=="Login") Response.Redirect("Login.aspx"); 
+        else Response.Redirect("pro.aspx");
     }
 
     protected void LinkButtonproduct_Click(object sender, EventArgs e)
