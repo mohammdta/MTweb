@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -9,6 +10,16 @@ public partial class Cart : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
+        if (!IsPostBack)
+        {
+            fill();
+        }
+    }
 
+    private void fill()
+    {
+        string st = ((user)(Session["user"])).Email;
+        DataTable dt = cart.sqlemail(st,false);
+         
     }
 }

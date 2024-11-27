@@ -18,10 +18,10 @@ public class cart
     public static void sqlInsert(string Porduct, string User, string Date)
     {
         string sql = "SELECT * FROM [cart] Where [Porduct]=@Porduct and [User]=@User and [IsBuy]=@IsBuy";
-        string[] parmert = { "@Porduct", "@User" , "@IsBuy" };
-        string[] values = { Porduct, User,"False" };
+        string[] parmert = { "@Porduct", "@User", "@IsBuy" };
+        string[] values = { Porduct, User, "False" };
         DataTable dt = Dbase.SelectFromTable(sql, parmert, values, "Tcehpc.accdb");
-        if (dt.Rows.Count ==0)
+        if (dt.Rows.Count == 0)
         {
             string sql1 = "INSERT INTO [cart] ([Porduct], [User], [Date], [IsBuy], [Count]) VALUES (@Porduct, @User, @Date, @IsBuy, @Count)";
             string[] parameters1 = { "@Porduct", "@User", "@Date", "@IsBuy", "@Count" };
@@ -30,11 +30,18 @@ public class cart
         }
         else
         {
-        string sql2 = "UPDATE [cart] SET [Count] = @Count WHERE [Id] = @Id";
-        string[] parameters2 = { "@Count", "@Id" };
-        string[] values2 = { (int.Parse(dt.Rows[0]["Count"].ToString()) + 1).ToString(), dt.Rows[0]["Id"].ToString() };
-        Dbase.ChangeTable(sql2, parameters2, values2, "Tcehpc.accdb");
-}
+            string sql2 = "UPDATE [cart] SET [Count] = @Count WHERE [Id] = @Id";
+            string[] parameters2 = { "@Count", "@Id" };
+            string[] values2 = { (int.Parse(dt.Rows[0]["Count"].ToString()) + 1).ToString(), dt.Rows[0]["Id"].ToString() };
+            Dbase.ChangeTable(sql2, parameters2, values2, "Tcehpc.accdb");
+        }
+    }
+    public static DataTable sqlemail(string email,bool thebuy)
+    {
+        string sql = "SELECT * FROM [cart] Where [User]=@User and [IsBuy]=@IsBuy";
+        string[] parmert = { "@User", "@IsBuy" };
+        string[] values = { email, thebuy.ToString() };
+       return Dbase.SelectFromTable(sql, parmert, values, "Tcehpc.accdb");
     }
 }
 
