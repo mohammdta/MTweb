@@ -31,10 +31,14 @@ public partial class showproduct : System.Web.UI.Page
 
     protected void DataListpro_ItemCommand(object source, DataListCommandEventArgs e)
     {
+        if(Session["user"]!=null)
+        {
 
         string st = e.CommandArgument.ToString();
         user us = (user)Session["user"];
         DateTime dateTime = DateTime.Now;
         cart.sqlInsert(st,us.Email,dateTime.ToString("yyyy/MM/dd"));
+        }
+        else Response.Redirect("Login.aspx");
     }
 }
