@@ -2,7 +2,10 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
+using System.Reflection;
 using System.Web;
+using System.Web.UI.WebControls.Expressions;
+using System.Xml.Linq;
 
 /// <summary>
 /// Summary description for User
@@ -36,12 +39,20 @@ public class cart
             Dbase.ChangeTable(sql2, parameters2, values2, "Tcehpc.accdb");
         }
     }
-    public static DataTable sqlemail(string email,bool thebuy)
+    public static DataTable sqlemail(string email, bool thebuy)
     {
         string sql = "SELECT * FROM [cart] Where [User]=@User and [IsBuy]=@IsBuy";
         string[] parmert = { "@User", "@IsBuy" };
         string[] values = { email, thebuy.ToString() };
-       return Dbase.SelectFromTable(sql, parmert, values, "Tcehpc.accdb");
+        return Dbase.SelectFromTable(sql, parmert, values, "Tcehpc.accdb");
+    }
+    public static DataTable sqlGetAllnobuy(string email)
+    {
+        string sql = "SELECT products.Name, products.Pic, products.Discount, products.Price, cart.Porduct, cart.Count FROM products INNER JOIN cart ON products.Id = cart.Porduct ";
+        sql += "WHERE cart.User = @email AND cart.IsBuy = 'False'";
+        string[] parmert = { "@email" };
+        string[] values = { email };
+        return Dbase.SelectFromTable(sql, parmert, values, "Tcehpc.accdb");
     }
 }
 

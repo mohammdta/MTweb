@@ -38,7 +38,7 @@ public partial class MasterPage : System.Web.UI.MasterPage
     }
     protected void LinkButtonUser_Click(object sender, EventArgs e)
     {
-        LinkButton linkButton=(LinkButton)sender;
+            LinkButton linkButton=(LinkButton)sender;
         if(linkButton.Text=="Login") Response.Redirect("Login.aspx"); 
         else Response.Redirect("pro.aspx");
     }
@@ -46,5 +46,10 @@ public partial class MasterPage : System.Web.UI.MasterPage
     protected void LinkButtonproduct_Click(object sender, EventArgs e)
     {
         Response.Redirect("Product.aspx");
+    }
+
+    protected void LinkButtoncart_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("Cart.aspx");
     }
 }

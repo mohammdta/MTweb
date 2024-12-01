@@ -34,11 +34,17 @@
                     <asp:LinkButton ID="LinkButtonContact" CssClass="btn" runat="server" Text="Contact"></asp:LinkButton></li>
 
                 <li class="dropdown">
-                    <asp:LinkButton CssClass="btn" CausesValidation="false"  ID="LinkButtonUser" runat="server" Text="User" OnClick="LinkButtonUser_Click"></asp:LinkButton>
+                    <asp:LinkButton CssClass="btn" CausesValidation="false" ID="LinkButtonUser" runat="server" Text="User" OnClick="LinkButtonUser_Click"></asp:LinkButton>
                     <div class="dropdown-content">
                         <asp:LinkButton CssClass="btn" CausesValidation="false" ID="LinkButtonLogout" runat="server" Text="Logout" OnClick="LinkButtonLogout_Click"></asp:LinkButton>
                     </div>
+                    <ul>
+                        <li>
+                            <asp:LinkButton ID="LinkButtoncart" CssClass="btn" runat="server" Text="Cart" OnClick="LinkButtoncart_Click"></asp:LinkButton>
+                        </li>
+                    </ul>
                 </li>
+
             </ul>
         </nav>
         <main>

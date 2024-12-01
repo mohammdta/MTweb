@@ -19,7 +19,16 @@ public partial class Cart : System.Web.UI.Page
     private void fill()
     {
         string st = ((user)(Session["user"])).Email;
-        DataTable dt = cart.sqlemail(st,false);
-         
+        DataTable dt = cart.sqlGetAllnobuy(st);
+        GridViewcart.DataSource = dt;
+        GridViewcart.DataBind();
+        for (int i = 0; i < dt.Rows.Count; i++)
+        {
+            Label laberprice = (Label)GridViewcart.Rows[i].FindControl("LabelPriceAfter");
+            double price = double.Parse(dt.Rows[i]["Price"].ToString());
+            double diccount = double.Parse(dt.Rows[i]["Discount"].ToString());
+            laberprice.Text = (price/100* diccount).ToString();
+
+        }
     }
 }
