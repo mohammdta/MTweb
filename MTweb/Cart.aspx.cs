@@ -28,7 +28,8 @@ public partial class Cart : System.Web.UI.Page
             double price = double.Parse(dt.Rows[i]["Price"].ToString());
             double diccount = double.Parse(dt.Rows[i]["Discount"].ToString());
             laberprice.Text = (price/100* diccount).ToString();
-
+            Image Imagepic = (Image)GridViewcart.Rows[i].FindControl("Imagepic");
+            Imagepic.ImageUrl = "data:image/png;base64," + dt.Rows[i]["Pic"].ToString();
         }
     }
 }

@@ -14,7 +14,7 @@
 
             <asp:TemplateField HeaderText="Full Name">
                 <ItemTemplate>
-                    <asp:Label ID="LabelFN4" runat="server" Text='<%#Bind("Pic") %>' CssClass="gridview-label"></asp:Label>
+                    <asp:Image ID="Imagepic" runat="server" />
                 </ItemTemplate>
             </asp:TemplateField>   
                 

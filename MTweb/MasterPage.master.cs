@@ -16,6 +16,7 @@ public partial class MasterPage : System.Web.UI.MasterPage
             {
                 LinkButtonUser.Text = ((user)Session["user"]).Fn;
                 LinkButtonLogout.Visible= true;
+
             }
             else
             {
@@ -50,6 +51,8 @@ public partial class MasterPage : System.Web.UI.MasterPage
 
     protected void LinkButtoncart_Click(object sender, EventArgs e)
     {
+        if((user)Session["user"] != null)
         Response.Redirect("Cart.aspx");
+        else Response.Redirect("Login.aspx");
     }
 }
