@@ -23,9 +23,13 @@
                 <li class="dropdown">
                     <asp:LinkButton ID="LinkButtonproduct" runat="server" class="btn" Text="product" OnClick="LinkButtonproduct_Click"></asp:LinkButton>
                     <div class="dropdown-content">
-                        <a class="btn" href="#">Service 1</a>
-                        <a class="btn" href="#">Service 2</a>
-                        <a class="btn" href="#">Service 3</a>
+
+                        <asp:DataList ID="DataList1" runat="server" OnItemCommand="DataListpro_ItemCommand">
+                            <ItemTemplate>
+                                <asp:LinkButton ID="LinkButtonpro" CssClass="btn" runat="server" Text='<%#Eval("Name") %>' CommandArgument='<%#Bind("Id") %>'></asp:LinkButton>
+                            </ItemTemplate>
+                        </asp:DataList>
+
                     </div>
                 </li>
                 <li>

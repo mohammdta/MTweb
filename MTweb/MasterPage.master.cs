@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Security.Principal;
 using System.Web;
@@ -23,7 +24,14 @@ public partial class MasterPage : System.Web.UI.MasterPage
                 LinkButtonUser.Text = "Login";
                 LinkButtonLogout.Visible = false;
             }
+            FillDataList();
         }
+    }
+    protected void FillDataList()
+    {
+       DataTable dataTable = kindproducts.sqlAll();
+       DataList1.DataSource = dataTable;
+       DataList1.DataBind();
     }
     protected void LinkButtonLogout_Click(object sender, EventArgs e)
     {
@@ -54,5 +62,11 @@ public partial class MasterPage : System.Web.UI.MasterPage
         if((user)Session["user"] != null)
         Response.Redirect("Cart.aspx");
         else Response.Redirect("Login.aspx");
+    }
+
+    protected void DataListpro_ItemCommand(object sender, DataListCommandEventArgs e)
+    {
+        Session["IdKind"] =e.CommandArgument.ToString();
+        Response.Redirect("showproduct.aspx");
     }
 }
