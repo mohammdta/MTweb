@@ -48,12 +48,13 @@ public class cart
     }
     public static DataTable sqlGetAllnobuy(string email)
     {
-        string sql = "SELECT products.Name, products.Pic, products.Discount, products.Price, cart.Porduct, cart.Count FROM products INNER JOIN cart ON products.Id = cart.Porduct ";
+        string sql = "SELECT products.Name, products.Pic, products.Discount, products.Price, products.Count AS  Count1, cart.Count, cart.Id FROM products INNER JOIN cart ON products.Id = cart.Porduct ";
         sql += "WHERE cart.User = @email AND cart.IsBuy = 'False'";
         string[] parmert = { "@email" };
         string[] values = { email };
         return Dbase.SelectFromTable(sql, parmert, values, "Tcehpc.accdb");
     }
+    
 }
 
 public class pruduct

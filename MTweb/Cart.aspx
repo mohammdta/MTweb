@@ -32,7 +32,7 @@
 
             <asp:TemplateField HeaderText="Count Counr">
                 <ItemTemplate>
-                    <asp:Label ID="DropDownListcount" runat="server" Text='<%#Bind("Count") %>' CssClass="gridview-label"></asp:Label>
+                    <asp:DropDownList ID="DropDownListcount" runat="server"></asp:DropDownList>
                 </ItemTemplate>
             </asp:TemplateField>
         </Columns>
