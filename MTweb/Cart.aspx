@@ -1,10 +1,16 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage.master" AutoEventWireup="true" CodeFile="Cart.aspx.cs" Inherits="Cart" %>
+﻿                <%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage.master" AutoEventWireup="true" CodeFile="Cart.aspx.cs" Inherits="Cart" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="Server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
     <asp:GridView ID="GridViewcart" runat="server" AutoGenerateColumns="False" CssClass="gridview-container"  AllowPaging="True" PageSize="5" >
         <Columns>
+
+            <asp:TemplateField HeaderText="select Item">
+                <ItemTemplate>
+                    <asp:CheckBox ID="CheckBoxselect" runat="server" />
+                </ItemTemplate>
+            </asp:TemplateField>
 
             <asp:TemplateField HeaderText="Name Product">
                 <ItemTemplate>

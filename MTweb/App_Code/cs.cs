@@ -46,12 +46,19 @@ public class cart
         string[] values = { email, thebuy.ToString() };
         return Dbase.SelectFromTable(sql, parmert, values, "Tcehpc.accdb");
     }
-    public static DataTable sqlGetAllnobuy(string email)
+    public static void sqlupdate(bool buy,string id)
     {
-        string sql = "SELECT products.Name, products.Pic, products.Discount, products.Price, products.Count AS  Count1, cart.Count, cart.Id FROM products INNER JOIN cart ON products.Id = cart.Porduct ";
-        sql += "WHERE cart.User = @email AND cart.IsBuy = 'False'";
-        string[] parmert = { "@email" };
-        string[] values = { email };
+        string sql2 = "UPDATE [cart] SET [IsBuy] = @IsBuy WHERE [Id] = @Id";
+        string[] parameters2 = { "@IsBuy", "@Id" };
+        string[] values2 = { buy.ToString(), id };
+        Dbase.ChangeTable(sql2, parameters2, values2, "Tcehpc.accdb");
+    }
+public static DataTable sqlGetAllbuy(string email,bool buy)
+    {
+        string sql = "SELECT products.Name, products.Pic, products.Discount, products.Price, products.Count AS count1, cart.Count, cart.Id FROM products INNER JOIN cart ON products.Id = cart.Porduct ";
+        sql += "WHERE cart.User = @email AND cart.IsBuy = @buy";
+        string[] parmert = { "@email", "@buy" };
+        string[] values = { email, buy.ToString() };
         return Dbase.SelectFromTable(sql, parmert, values, "Tcehpc.accdb");
     }
     
@@ -67,7 +74,8 @@ public class pruduct
     public string Name { get; set; }
     public string Count { get; set; }
     public bool Private { get; set; }
-    public static void sqlInsert(string Id, string KindProducts, string Price, string Discount, string Name, string Pic, string Count, bool Private)
+    public string MaxBuyForUser { get; set; }
+    public static void sqlInsert(string Id, string KindProducts, string Price, string Discount, string Name, string Pic, string Count, bool Private )
     {
         string sql = "INSERT INTO [products] ([Id], [KindProducts], [Price], [Discount], [Name], [Pic], [Count], [Private]) VALUES (@Id, @KindProducts, @Price, @Discount, @Name, @Pic, @Count, @Private)";
         string[] parameters = { "@Id", "@KindProducts", "@price", "@Discount", "@name", "@Pic", "@Count", "@Private" };
@@ -81,6 +89,7 @@ public class pruduct
         string[] values = { KindProducts, "True" };
         return Dbase.SelectFromTable(sql, parmert, values, "Tcehpc.accdb");
     }
+    
 
 }
 public class kindproducts
