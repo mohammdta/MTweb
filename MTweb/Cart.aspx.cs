@@ -1,4 +1,5 @@
 ﻿    using System;
+using System.Activities;
 using System.Collections.Generic;
 using System.Data;
 using System.Diagnostics.Eventing.Reader;
@@ -36,6 +37,7 @@ public partial class Cart : System.Web.UI.Page
                     dropDownList.Items.Add(j.ToString());
             CheckBox CheckBoxselect1 = (CheckBox)GridViewcart.Rows[i].FindControl("CheckBoxselect");
             CheckBoxselect1.Checked = true;
+            dropDownList.SelectedIndex =dt.;
         }
     }
 }
