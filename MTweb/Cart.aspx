@@ -36,7 +36,7 @@
                 </ItemTemplate>
             </asp:TemplateField>                
 
-            <asp:TemplateField HeaderText="Count Counr">
+            <asp:TemplateField HeaderText="Count">
                 <ItemTemplate>
                     <asp:DropDownList ID="DropDownListcount" runat="server"></asp:DropDownList>
                 </ItemTemplate>
