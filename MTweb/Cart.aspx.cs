@@ -34,6 +34,8 @@ public partial class Cart : System.Web.UI.Page
             DropDownList dropDownList = (DropDownList)GridViewcart.Rows[i].FindControl("DropDownListcount");
                 for (global::System.Int32 j = 1; j < int.Parse(dt.Rows[i]["count1"].ToString()) + 1; j++)
                     dropDownList.Items.Add(j.ToString());
+            CheckBox CheckBoxselect1 = (CheckBox)GridViewcart.Rows[i].FindControl("CheckBoxselect");
+            CheckBoxselect1.Checked = true;
         }
     }
 }
